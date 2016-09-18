@@ -2,7 +2,7 @@ from random import randint
 
 from flask import Flask, render_template
 from flask import request
-from GoogleChartsFlask.preprocessing import get_data
+from preprocessing import get_data
 
 original_rating = None
 app = Flask(__name__)
@@ -32,4 +32,3 @@ def index_page():
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
-    # app.run(debug=True, host='0.0.0.0', port=5008, passthrough_errors=True)
