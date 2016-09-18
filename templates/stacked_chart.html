@@ -1,0 +1,33 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        [ 'index','rating 1' ,  'rating 2', 'rating 3', 'rating 4', 'rating 5'] ,
+        {% for item in data %}
+        [ {{ loop.index }}  , {{ item[0] }}, {{ item[1] }} , {{ item[2] }} , {{ item[3] }} , {{ item[4] }} ] ,
+        {% endfor %}
+
+      ]);
+
+
+        var view = new google.visualization.DataView(data);
+
+          var options_stacked = {
+          isStacked: true,
+          height: 300,
+          legend: {position: 'top', maxLines: 3},
+          vAxis: {minValue: 0
+                ,title: 'Rating Distribution'},
+          hAxis: {title: 'Day Since'},
+
+        };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options_stacked);
+  }
+
+
+</script>
+<div id="columnchart_values" style="width: 900px; height: 300px;"></div>

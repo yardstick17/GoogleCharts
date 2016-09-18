@@ -1,0 +1,46 @@
+{% include 'page_top.html' %}
+
+<div class="wrapper small">
+
+    <div class="ui raised segment" style="margin-top: 10px">
+        <form class="ui form res_id_input" action="/restaurant/history/rating"
+              method="GET">
+            <div class="field">
+                <label>Enter res id </label>
+                <input type="number" placeholder="like 4959 for Downtown"
+                       name="res_id"/>
+            </div>
+            <button id="res-tag" class="ui submit button red"> Get Restaurant Rating History
+            </button>
+        </form>
+    </div>
+
+
+    <div class="wrapper small">
+
+        <div class="ui raised segment" style="margin-top: 10px">
+            <form class="ui form res_id_input" action="/restaurant/daily/rating/all"
+                  method="GET">
+                <div class="field">
+                    <label>Res id </label>
+                    <input type="number" placeholder="like 4959 for Downtown"
+                           name="res_id"/>
+                </div>
+                <div class="field">
+                    <label>From </label>
+                    <input type="date" placeholder="Date From"
+                           name="data_from"/>
+                </div>
+                <div class="field">
+                    <label> To </label>
+                    <input type="date" placeholder="Date To"
+                           name="data_to"/>
+                </div>
+                <button id="rating-dis" class="ui submit button red"> Get Restaurant Daily Rating
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'page_bottom.html' %}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rating History</title>
+
+</head>
+<h1> Rating Analysis
+    for Date Between {{ date_to }} - {{date_to}}
+</h1>
+<body>
+
+{% include 'stacked_chart.html' %}
+{% include 'line_chart.html' %}
+{% include 'combo_chart.html' %}
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Daily', 'Original ', 'Delivery rating' , 'Normalized Rating'],
+          {% for item in data %}
+          [  {{ loop.index }} , {{ item[0] }} ,{{ item[1] }}  , {{ item[2] }} ] ,
+          {% endfor %}
+
+        ]);
+
+        var options = {
+        width: 1200,
+        height: 500,
+        title: 'Rating History for : {{ res_id }}',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          vAxis: {title: ' Rating'},
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+
+
+
+    </script>
+</head>
+<body>
+
+<div id="curve_chart" style="width: 900px; height: 500px"></div>
+</body>
+</html>
