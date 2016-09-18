@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+echo "Server logs are in ~/logs directory. Use 'tail -f ~/logs/gunicorn_*.log'"
+gunicorn app:app -c gunicorn_cfg.py
